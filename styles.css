@@ -1,0 +1,132 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f5f7ff;
+  background: #0b1020;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calculator {
+  width: min(100%, 420px);
+  background: rgba(15, 23, 42, 0.84);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.6);
+  overflow: hidden;
+}
+
+.display-panel {
+  padding: 24px 20px 18px;
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.expression {
+  min-height: 28px;
+  color: rgba(226, 232, 240, 0.8);
+  font-size: 1rem;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result {
+  margin-top: 10px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px;
+}
+
+.key {
+  appearance: none;
+  border: none;
+  border-radius: 16px;
+  min-height: 68px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.9);
+  color: #f8fafc;
+  transition: transform 0.16s ease, filter 0.16s ease;
+}
+
+.key:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.key:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.key.operator {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #fff7ed;
+}
+
+.key.clear {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.key.delete {
+  background: linear-gradient(135deg, #64748b, #475569);
+}
+
+.key.equals {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    border-radius: 18px;
+  }
+
+  .key {
+    min-height: 60px;
+    font-size: 1.05rem;
+  }
+}
